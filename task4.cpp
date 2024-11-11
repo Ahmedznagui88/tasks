@@ -18,9 +18,16 @@ int main() {
     int array[num];
 
     for (int i = 0; i < num; i++) {
-        cout << "Now, enter a binary number " << i + 1 << "  " << endl;
-        cin >> array[i];
+
+        do {
+            cout << "Now, enter 0 or 1 " << i + 1 << "  " << endl;
+            cin >> array[i];
+
+            (array[i] != 0 && array[i] != 1) ? cout << "wrong number!! " : cout<< "";
+        } while(array[i] != 0 && array[i] != 1);
+        
     }
+
     cout <<endl;
 
     //! convert binary to decimal
@@ -59,7 +66,7 @@ int main() {
             break;
 
         case 2:
-            //!sum binary + 1 and print result "implementation not completed"
+            //!sum binary + 1 and print result ("implementation not completed")
             int sum;
             int m;
             for(int i = (num - 1); i >= 0; i--) {
@@ -81,7 +88,7 @@ int main() {
             break;
 
         default:
-            cout << " error" << endl;
+            cout << "error" << endl;
         }
 
     } while(choice >= 3);

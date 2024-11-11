@@ -1,0 +1,13 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#4C1F29",
+        "titleBar.activeBackground": "#6A2C3A",
+        "titleBar.activeForeground": "#FEFCFC"
+    },
+    "files.associations": {
+        ".fantomasignore": "ignore",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "array": "cpp"
+    }
+}
