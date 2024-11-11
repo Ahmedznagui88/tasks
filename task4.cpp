@@ -20,12 +20,11 @@ int main() {
     for (int i = 0; i < num; i++) {
 
         do {
-            cout << "Now, enter 0 or 1 " << i + 1 << "  " << endl;
+            cout << "Now, enter a binary number: " << i + 1 << "  " << endl;
             cin >> array[i];
-
             (array[i] != 0 && array[i] != 1) ? cout << "wrong number!! " : cout<< "";
         } while(array[i] != 0 && array[i] != 1);
-        
+
     }
 
     cout <<endl;
@@ -43,7 +42,7 @@ int main() {
     int choice;
 
     do {
-        cout << "enter a number betwwn 0, 1 and 2: ";
+        cout << "enter a number between 0, 1 and 2: ";
         cin >> choice;
 
         switch (choice) {
@@ -52,7 +51,6 @@ int main() {
                 cout << array[i] << " ";
             }
             cout <<endl;
-
             break;
             
         case 1:
@@ -70,8 +68,8 @@ int main() {
             int sum;
             int m;
             for(int i = (num - 1); i >= 0; i--) {
-                m = (array[i] + 1) % 2; 
-                sum = m / 2;
+                sum = (array[i] + 1) % 2; 
+                m = sum / 2;
 
                 if(m == 1) {
                     cout << "overflow detect";
