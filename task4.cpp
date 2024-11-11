@@ -59,7 +59,7 @@ int main() {
             break;
 
         case 2:
-            //!sum binary + 1 and print result "implementation not completed"
+            //!sum binary + 1 and print result ("implementation not completed")
             int sum;
             int m;
             for(int i = (num - 1); i >= 0; i--) {
