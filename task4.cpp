@@ -68,11 +68,11 @@ int main() {
             int sum;
             int m;
             for(int i = (num - 1); i >= 0; i--) {
-                sum = (array[i] + 1) % 2; 
-                m = sum / 2;
-
-                if(m == 1) {
-                    cout << "overflow detect";
+                sum = (array[i] + 1);  //01 0 //0
+                
+                cout << sum <<endl;
+                if(array[i-1] == 1) {
+                    cout << "overflow detect: ";
                     break;
                 }
             }
