@@ -17,7 +17,7 @@ int main() {
     //! input: binaries in arrays
     int array[num];
 
-    for (int i = 0; i < num; i++) {
+    for (int i = (num - 1); i >= 0; i--) {
 
         do {
             cout << "Now, enter a binary number: " << i + 1 << "  " << endl;
@@ -47,7 +47,7 @@ int main() {
 
         switch (choice) {
         case 0:
-            for(int i = 0; i < num; i++) {
+            for(int i = (num - 1); i >= 0; i--) {
                 cout << array[i] << " ";
             }
             cout <<endl;
@@ -68,10 +68,10 @@ int main() {
             int sum;
             int m;
             for(int i = (num - 1); i >= 0; i--) {
-                sum = (array[i] + 1);  //01 0 //0
+                sum = (array[i] + 1);
                 
                 cout << sum <<endl;
-                if(array[i-1] == 1) {
+                if(array[i - 1] == 1) {
                     cout << "overflow detect: ";
                     break;
                 }
@@ -91,5 +91,9 @@ int main() {
 
     } while(choice >= 3);
 
+    
+
     return 0;
 }
+
+
