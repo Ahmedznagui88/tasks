@@ -2,46 +2,45 @@
 #include <string>
 #include <cstring>
 using namespace std;
-
 #define MAX_LENGTH 100
 
 int main() {
-    char strA[MAX_LENGTH];
-    char strB[MAX_LENGTH];
+    char strA[MAX_LENGTH], strB[MAX_LENGTH];
 
-    int i = 0;
-
-    //! input validate if word have spaceword
     do {
-        cout << "Enter first word: ";
-        cin.getline(strA, MAX_LENGTH);
-        cout << "Enter second word: ";
-        cin.getline(strB, MAX_LENGTH);
 
-        //controllo se le parole sono anagrammi
+        cout << "Enter the first word: ";
+        cin.getline(strA, MAX_LENGTH, '\n');
 
-        if(strA == "$" && strB == "$") {
-            cout << "exit "<<endl;
-            break; 
+        if (strcmp(strA, "$") == false) {
+            cout << "Bye" << endl;
+            break;
         }
 
-        for(int i = 0; i < strlen(strA); i++) {
-            for(int j = 0; j < strlen(strB); j++) {
-                if(strA[i] == strB[j]) {
-                    /* strB[j] = '$';
-                    break; */
+        cout << "Enter the second word: ";
+        cin.getline(strB, MAX_LENGTH, '\n');
 
-                    cout << "Thi is an anagram" << endl;
-                } else {
-                    cout << "Thi is not an anagram" << endl;
-                }
+        /* if (strlen(strA) != strlen(strB)) {
+            cout << "These words doesn't have same length" << endl;
+        } */
+
+        bool isAnagram = true;
+        int lenA = strlen(strA);
+        int lenB = strlen(strB);
+
+        for (int i = 0; i < lenA; i++) {
+            if (!strchr(strB, strA[i])) {
+                isAnagram = false;
+                cout << "This is not an anagrma" << endl <<endl;
+                break;
             }
         }
 
-/*             strlen(strA) != strlen(strB) ? cout << "Thi is not an anagram" << endl : cout << "this is an anagrma" << endl;
-            strcmp(strA, strB) ? cout << "this is an anagrma" << endl : cout << "Thi is not an anagram" << endl; */
+        if (isAnagram) {
+            cout << "Words are anagrams" << endl <<endl;
+        }
 
+    } while (strcmp(strA, "$") != false);
 
-    } while (strA[i] == '$' && strB[i] == '$');
     return 0;
 }
