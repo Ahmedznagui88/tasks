@@ -8,7 +8,9 @@ using namespace std;
 int main() {
     char strA[MAX_LENGTH];
     char strB[MAX_LENGTH];
-    
+
+    int i = 0;
+
     //! input validate if word have spaceword
     do {
         cout << "Enter first word: ";
@@ -16,28 +18,30 @@ int main() {
         cout << "Enter second word: ";
         cin.getline(strB, MAX_LENGTH);
 
+        //controllo se le parole sono anagrammi
 
-        //! check if the two words are anagrams
+        if(strA == "$" && strB == "$") {
+            cout << "exit "<<endl;
+            break; 
+        }
 
-        for (int i = 0; i < strlen(strA); i++) {
-            for (int j = 0; j < strlen(strA); j++) {
+        for(int i = 0; i < strlen(strA); i++) {
+            for(int j = 0; j < strlen(strB); j++) {
+                if(strA[i] == strB[j]) {
+                    /* strB[j] = '$';
+                    break; */
 
-                if (strA[i] == strA[j]) {
-                    i++;
-                }
-                if (strA[i] == strB[j]) {
-                    i++;
+                    cout << "Thi is an anagram" << endl;
+                } else {
+                    cout << "Thi is not an anagram" << endl;
                 }
             }
         }
 
-        if (strlen(strA) != strlen(strB)) {
-            cout << "Thi is not an anagram" << endl;
-        } else {
-            cout << "this is an anagrma" << endl;
-        }
+/*             strlen(strA) != strlen(strB) ? cout << "Thi is not an anagram" << endl : cout << "this is an anagrma" << endl;
+            strcmp(strA, strB) ? cout << "this is an anagrma" << endl : cout << "Thi is not an anagram" << endl; */
 
-    } while (strchr(strA, ' ') && strchr(strB, ' '));
 
+    } while (strA[i] == '$' && strB[i] == '$');
     return 0;
 }
