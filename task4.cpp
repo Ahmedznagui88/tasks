@@ -7,7 +7,6 @@ int main() {
     int num;
     cout << "Enter a number > 2: ";
     cin >> num;
-
     while (num < 2) {
         cout << "wrong number!! " << endl;
         cout << "Please, enter a number > 2: " << endl;
@@ -16,22 +15,18 @@ int main() {
 
     //! input: binaries in arrays
     int array[num];
-
     for (int i = (num - 1); i >= 0; i--) {
-
         do {
             cout << "Now, enter a binary number: " << i + 1 << "  " << endl;
             cin >> array[i];
             (array[i] != 0 && array[i] != 1) ? cout << "wrong number!! " : cout<< "";
         } while(array[i] != 0 && array[i] != 1);
-
     }
 
     cout <<endl;
 
     //! convert binary to decimal
     float decimal = 0;
-
     for (int i = 0; i < num; i++) {
         if(array[i] == 1) {            
             decimal += pow(2, i);            
@@ -40,11 +35,9 @@ int main() {
 
     //! input: choise print
     int choice;
-
     do {
         cout << "enter a number between 0, 1 and 2: ";
         cin >> choice;
-
         switch (choice) {
         case 0:
             for(int i = (num - 1); i >= 0; i--) {
@@ -80,7 +73,6 @@ int main() {
             for(int i = 0; i < num; i++) {
                 cout << array[i] <<" ";
             }
-
             cout <<endl;
             cout <<"implementation not completed" << endl;
             break;
@@ -88,12 +80,6 @@ int main() {
         default:
             cout << "error" << endl;
         }
-
     } while(choice >= 3);
-
-    
-
     return 0;
 }
-
-
