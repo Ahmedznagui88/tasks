@@ -25,6 +25,9 @@ int main() {
                 }
             }
         } while (failed);
+        cout << strA << endl;
+        cout << strlen(strA) << endl;
+
         //! press $ to exit
         if (strcmp(strA, "$") == 0) {
             cout << "Bye" << endl;
@@ -47,19 +50,21 @@ int main() {
                 } 
             }
         } while (failed);
-        
+
         cout << endl;
 
-        for (int i = 0; i < strlen(strA); i++) {
+        for (int i = 0; i < strA[i]; i++) {
             if (strA[0] == strB[0]) {
                 cout << " ";
                 break;
             } else if (strchr(strB, strA[i]) == 0) {
                 cout << "This is not an anagram" << endl;
+                break;
             } else {
                 cout << "Words are anagrams" << endl;
+                break;
             }
-            break;
+           
         }
 
         cout << endl;
