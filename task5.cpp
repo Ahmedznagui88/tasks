@@ -8,13 +8,13 @@ int main() {
     //! input: strings until press $
     do {
         //! enter the first word
-        int failed = cin.fail();
         do {
             cout << "Enter the first word: ";
             cin.getline(strA, MAX_LENGTH, '\n');
-            if (failed){
+            if (cin.fail()){
                 cin.clear();
                 cin.ignore(101, '\n');
+                cout << "Invalid input, try again" << endl;
             }
             //! remove spaces from string 1
             for (int i = 0; i < strlen(strA); i++) {
@@ -24,7 +24,7 @@ int main() {
                     }
                 }
             }
-        } while (failed);
+        } while (!cin || strlen(strA) == 0);
         cout << strA << endl;
         cout << strlen(strA) << endl;
 
@@ -37,9 +37,10 @@ int main() {
         do {
             cout << "Enter the second word: ";
             cin.getline(strB, MAX_LENGTH, '\n');
-            if (failed){
+            if (cin.fail()){
                 cin.clear();
                 cin.ignore(101, '\n');
+                cout << "Invalid input, try again" << endl;
             }
             //! remove spaces from string 2
             for (int i = 0; i < strlen(strB); i++) {
@@ -49,12 +50,12 @@ int main() {
                     }  
                 } 
             }
-        } while (failed);
+        } while (!cin || strlen(strB) == 0);
 
         cout << endl;
 
         for (int i = 0; i < strA[i]; i++) {
-            if (strA[0] == strB[0]) {
+            if (strA[5] == strB[5]) {
                 cout << " ";
                 break;
             } else if (strchr(strB, strA[i]) == 0) {
@@ -64,9 +65,7 @@ int main() {
                 cout << "Words are anagrams" << endl;
                 break;
             }
-           
         }
-
         cout << endl;
 
     } while (strcmp(strA, "$") != 0);
