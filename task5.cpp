@@ -24,9 +24,7 @@ int main() {
                     }
                 }
             }
-        } while (!cin || strlen(strA) == 0);
-        cout << strA << endl;
-        cout << strlen(strA) << endl;
+        } while (!cin || strlen(strA) > MAX_LENGTH);
 
         //! press $ to exit
         if (strcmp(strA, "$") == 0) {
@@ -50,7 +48,7 @@ int main() {
                     }  
                 } 
             }
-        } while (!cin || strlen(strB) == 0);
+        } while (!cin || strlen(strB) > MAX_LENGTH); 
 
         cout << endl;
 
