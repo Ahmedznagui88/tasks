@@ -24,15 +24,12 @@ int main() {
                     }
                 }
             }
-
         } while (failed);
-
         //! press $ to exit
         if (strcmp(strA, "$") == 0) {
             cout << "Bye" << endl;
             return 0;
         }
-
         //! enter the second word
         do {
             cout << "Enter the second word: ";
@@ -41,7 +38,7 @@ int main() {
                 cin.clear();
                 cin.ignore(101, '\n');
             }
-            //! remove spaces from string 2 
+            //! remove spaces from string 2
             for (int i = 0; i < strlen(strB); i++) {
                 if (strB[i] == ' ') {
                     for (int j = i; j < strlen(strB); j++){
@@ -50,12 +47,9 @@ int main() {
                 } 
             }
         } while (failed);
+        
         cout << endl;
 
-        //! compare strings
-        //! check the first letters from the first and second string
-        //! check if two strings are anagrams or not
-        
         for (int i = 0; i < strlen(strA); i++) {
             if (strA[0] == strB[0]) {
                 cout << " ";
@@ -68,6 +62,9 @@ int main() {
             break;
         }
 
+        cout << endl;
+
     } while (strcmp(strA, "$") != 0);
+
     return 0;
 }
