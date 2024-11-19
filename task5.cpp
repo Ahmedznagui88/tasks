@@ -7,7 +7,8 @@ int main() {
     char strA[MAX_LENGTH], strB[MAX_LENGTH];
     //! input: strings until press $
     do {
-        //! enter the first word
+        
+        //! First word / fail management
         do {
             cout << "Enter the first word: ";
             cin.getline(strA, MAX_LENGTH, '\n');
@@ -16,14 +17,6 @@ int main() {
                 cin.ignore(101, '\n');
                 cout << "Invalid input, try again" << endl;
             }
-            //! remove spaces from string 1
-            for (int i = 0; i < strlen(strA); i++) {
-                if (strA[i] == ' ') {  
-                    for (int j = i; j < strlen(strA); j++){
-                        strA[j] = strA[j + 1];
-                    }
-                }
-            }
         } while (!cin || strlen(strA) > MAX_LENGTH);
 
         //! press $ to exit
@@ -31,7 +24,8 @@ int main() {
             cout << "Bye" << endl;
             return 0;
         }
-        //! enter the second word
+
+        //! Second word / fail management
         do {
             cout << "Enter the second word: ";
             cin.getline(strB, MAX_LENGTH, '\n');
@@ -40,20 +34,29 @@ int main() {
                 cin.ignore(101, '\n');
                 cout << "Invalid input, try again" << endl;
             }
-            //! remove spaces from string 2
-            for (int i = 0; i < strlen(strB); i++) {
-                if (strB[i] == ' ') {
-                    for (int j = i; j < strlen(strB); j++){
-                        strB[j] = strB[j + 1];
-                    }  
-                } 
-            }
         } while (!cin || strlen(strB) > MAX_LENGTH); 
+
+        //! remove spaces from string 1 & 2
+        for (int i = 0; i < strlen(strA); i++) {
+            if (strA[i] == ' ') {  
+                for (int j = i; j < strlen(strA); j++){
+                   strA[j] = strA[j + 1];
+                }
+            }
+        }
+        for (int i = 0; i < strlen(strB); i++) {
+            if (strB[i] == ' ') {
+                for (int j = i; j < strlen(strB); j++){
+                    strB[j] = strB[j + 1];
+                }  
+            } 
+        }
 
         cout << endl;
 
+        //! check if the words are anagrams
         for (int i = 0; i < strA[i]; i++) {
-            if (strA[5] == strB[5]) {
+            if (strA[i] == strB[i]) {
                 cout << " ";
                 break;
             } else if (strchr(strB, strA[i]) == 0) {
@@ -67,6 +70,5 @@ int main() {
         cout << endl;
 
     } while (strcmp(strA, "$") != 0);
-
     return 0;
 }
