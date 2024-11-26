@@ -13,7 +13,6 @@ struct contacts {
 int main() {
 
     contacts contact[LEN];
-    contacts c;
     char name[50], surname[50], phone[10];
     int count = 0;
     int choice;
@@ -55,54 +54,49 @@ int main() {
             //!inpunt name
             cout << "Enter a name : " << endl;
             do {
-                cin.getline(c.name, 50);
+                cin.getline(contact[count].name, 50);
                 if (cin.fail()) {
                     cin.clear();
                     cin.ignore(50, '\n');
                     cout << "Invalid input : " << endl;
                     cout << "Enter a name : " << endl;
                 }
-            } while (c.name[0] == '\0');
-            
-            strcpy(contact[count].name, c.name); 
+            } while (contact[count].name[0] == '\0');
 
             //!input surname
             cout << "Enter a surname : " << endl;
             do {
-                cin.getline(c.surname, 50);
+                cin.getline(contact[count].surname, 50);
                 if (cin.fail()) {
                     cin.clear();
                     cin.ignore(50, '\n');
                     cout << "Invalid input : " << endl;
                     cout << "Enter a surname : " << endl;
                 }
-            }while (c.surname[0] == '\0');
+            }while (contact[count].surname[0] == '\0');
             
-            strcpy(contact[count].surname, c.surname);
 
             //!input phone
             cout << "Enter a phone number : " << endl;
             int n;
             
             do {
-                cin.getline(c.phone, 11);
-                n = strlen(c.phone);
+                cin.getline(contact[count].phone, 10);
+                n = strlen(contact[count].phone);
                 if (!n && n > 11 || n <= 1 || cin.fail()) {
                     cin.clear();
                     cin.ignore(11, '\n');
                     cout << "Invalid input : " << endl;
                 }
             } while (n > 11 || n <= 1);
-            
-            strcpy(contact[count].phone, c.phone);
 
             //!counter contact
-            if (count >= LEN) {
-                cout << "Contact list is full" << endl;
-            } else {
-                count++;
-                cout << "#### Contact added ####" << endl;
-            }
+            count++;
+            cout << "#### Contact added ####" << endl;
+
+            cin.ignore();
+
+
             break;
         case 3:
 
@@ -114,18 +108,33 @@ int main() {
             }else {
                 cout << "Delete contact" << endl;
                 cout << "Enter a name to delete : " << endl;
-            /*     cin.getline(c.name, 50);
+                cin.getline(contact[count].name, 50);
+                if(cin.fail()) {
+                    cin.clear();
+                    cin.ignore(50, '\n');
+                    cout << "Invalid input : " << endl;
+                    cout << "Enter a name to delete : " << endl;
+                }
+                cout << "Enter a surname to delete : " << endl;
+                cin.getline(contact[count].surname, 50);
+                if(cin.fail()) {
+                    cin.clear();
+                    cin.ignore(50, '\n');
+                    cout << "Invalid input : " << endl;
+                    cout << "Enter a surname to delete : " << endl;
+                }
+
                 for (int i = 0; i < count; i++) {
-                    if (strcmp(contact[i].name, c.name) == 0) {
+                    if (strlen(contact[i].name) == 0 || strlen(contact[i].surname)) {
                         for (int j = i; j < count; j++) {
                             contact[j] = contact[j + 1];
                         }
                         count--;
                         break;
                     }
-                } */
-            
+                }
             }
+            cout << "#### Contact deleted ####" << endl;
             break;
         case 4:
         //!exit
@@ -133,25 +142,12 @@ int main() {
             cout << "Exit" << endl;
             break;
         }
-
             break;
         default:
             cout << "Error" << endl;
             
         } 
-        //!ordinare in ordine alfabetico
-        /* for (int i = 0; i < count; i++) {
-            for (int j = i + 1; j < count; j++) {
-                if (strcmp(contact[i].name, contact[j].name) > 0) {
-                    c = contact[i];
-                    contact[i] = contact[j];
-                    contact[j] = c;
-                }
-            }
-        } */
-
         cin.ignore();
-
     } while (choice != 4);
 
     return 0;

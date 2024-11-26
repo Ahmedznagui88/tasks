@@ -52,10 +52,8 @@ int main() {
                 array[i] = array[num - 1 - i];
                 array[num - 1 - i] = n;
             }
-
             cout << decimal << " decimal"<< endl;
             break;
-
         case 2:
             //!sum binary + 1 and print result ("implementation not completed")
             int sum;

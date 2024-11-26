@@ -7,7 +7,7 @@ int main() {
     char strA[LEN], strB[LEN];
     do {
     int failed = cin.fail();
- 
+
         do {
             cout << "Enter the first word: " <<endl;
             cin.getline(strA, LEN, '\n');
@@ -23,7 +23,6 @@ int main() {
             cout << "Bye" << endl;
             return 0;
         }
-
         do {
             cout << "Enter the second word: " <<endl;
             cin.getline(strB, LEN, '\n');
