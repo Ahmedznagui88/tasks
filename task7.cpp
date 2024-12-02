@@ -31,8 +31,16 @@ int main() {
             }
             n--;
         }
-        cout << p[i] << " ";
     }
+    cout << "Allocate " << n << " variables."<< endl;
+    for (int i = 0; i < n; i++) {
+        if (p[i] < 0) {
+            continue;
+        }
+        cout << p[i] << " ";
+
+    }
+    cout << endl;
     delete [] p;
     
     return 0;
